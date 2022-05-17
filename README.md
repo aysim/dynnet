@@ -21,6 +21,7 @@ The models are mainly adapted from <a href="https://github.com/VSainteuf/utae-pa
 
 * Please download the dataset from: <a href="https://mediatum.ub.tum.de/1650201">DynamicEarthNet</a>.
 * Find the training, validation and test splits <a href="https://vision.in.tum.de/webshare/u/toker/dynnet_training_splits/">here</a>.
+* Put the split files and the data itself in the same directory and replace the root path in `config/defaults.yaml`.
 * During the experiments, 2 cubes from the training set was not available so we exclude them. However now they are ready to use, please modify the train.txt accordingly. Specifically, the id's of the missing cubes: 1417_3281_13 and 2235_3403_13.
 
 ## Pretrained Models 
@@ -28,6 +29,7 @@ The models are mainly adapted from <a href="https://github.com/VSainteuf/utae-pa
 ## Train 
 * Run `utae_train.py`.
 * Modify the arguments from `config/defaults.yaml`.
+* Additionally, adjust the log files in `helper/parser.py`.
 ## Test 
 To test our architecture use the pretained models, given above, and run  `inference.py`.
 ## Cite
