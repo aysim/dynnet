@@ -26,7 +26,7 @@ def main(opts: Any, config: Mapping[Text, Any]) -> None:
 
     # Initialize network wrapper
     if opts.resume:
-        opts.checkpoint = os.path.join('/storage/www/user/toker/dynnet_ckpt/3dconv/weekly', 'best_ckpt.pth')
+        opts.checkpoint = os.path.join('checkpoint_dir', 'best_ckpt.pth')
 
 
     # Configure data loader
