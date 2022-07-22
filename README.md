@@ -15,7 +15,7 @@ Finally, we propose a new evaluation metric SCS that addresses the specific chal
 The code has been implemented & tested with Python 3.9.6 and Pytorch 1.9.0.
 ### Usage 
 This repository only contains the implementation of temporal architectures. For the semi-supervised training, we use <a href="https://github.com/dvlab-research/Context-Aware-Consistency">Context Aware Consistency repository</a>. We refer the interested reader there.
-The models are mainly adapted from <a href="https://github.com/VSainteuf/utae-paps/tree/2b9fae182f7271cabe59e5837057c7c1b0b40f39">Panoptic Segmentation of Satellite Image Time Series with Convolutional Temporal Attention Networks (ICCV 2021)</a>.
+The models are adapted from <a href="https://github.com/VSainteuf/utae-paps/tree/2b9fae182f7271cabe59e5837057c7c1b0b40f39">Panoptic Segmentation of Satellite Image Time Series with Convolutional Temporal Attention Networks (ICCV 2021)</a>.
 
 ## Datasets and Polar transformation
 
