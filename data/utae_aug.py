@@ -30,7 +30,7 @@ def _scaleNormalize_image_stack(image_list):
     image_stack = torch.cat(cur_images, dim=0)
     return image_stack
 
-def _crop(image_list, label, crop_size, image_padding, ignore_index):
+def _crop(image_list, label, crop_size):
     # Padding to return the correct crop size
     if (isinstance(crop_size, list) or isinstance(crop_size, tuple)) and len(crop_size) == 2:
         crop_h, crop_w = crop_size
@@ -38,20 +38,6 @@ def _crop(image_list, label, crop_size, image_padding, ignore_index):
         crop_h, crop_w = crop_size, crop_size
     else:
         raise ValueError
-
-    h, w = label.shape
-    pad_h = max(crop_h - h, 0)
-    pad_w = max(crop_w - w, 0)
-    pad_kwargs = {
-        "top": 0,
-        "bottom": pad_h,
-        "left": 0,
-        "right": pad_w,
-        "borderType": cv2.BORDER_CONSTANT, }
-    if pad_h > 0 or pad_w > 0:
-        label = cv2.copyMakeBorder(label, value=ignore_index, **pad_kwargs)
-        for i in range(image_list.shape[0]):
-            image_list[i, :, :, :] = cv2.copyMakeBorder(image_list[i, :, :, :], value=image_padding, **pad_kwargs)
 
     # Cropping
     h, w = label.shape
@@ -113,12 +99,12 @@ def val_augmentation(image_list, label, scale, base_size=None):
     image_list = _scaleNormalize_image_stack(image_list)
     return image_list, label
 
-def train_augmentation(image_list, label, scale, base_size, crop_size, image_padding, ignore_index, flip):
+def train_augmentation(image_list, label, scale, base_size, crop_size, flip):
     if base_size is not None:
         image_list, label = _resize(image_list, label, base_size, scale)
 
     if crop_size is not None:
-        image_list, label = _crop(image_list, label, crop_size=crop_size, image_padding=image_padding, ignore_index=ignore_index)
+        image_list, label = _crop(image_list, label, crop_size=crop_size)
     if flip:
         image_list, label = _flip(image_list, label)
     return _scaleNormalize_image_stack(image_list), label

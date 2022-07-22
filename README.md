@@ -31,7 +31,7 @@ The models are mainly adapted from <a href="https://github.com/VSainteuf/utae-pa
 * Modify the arguments from `config/defaults.yaml`.
 * Additionally, adjust the log files in `helper/parser.py`.
 ## Test 
-To test our architecture use the pretained models, given above, and run  `inference.py`.
+To test our architecture use the pretained models, given above, and run  `inference.py`. Modify the checkpoint directory path!
 ## Cite
 If you use our implementation, please cite:
 ```

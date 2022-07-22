@@ -79,7 +79,6 @@ class NetworkWrapper:
         with torch.no_grad():
             for i, data in enumerate(data_loader):
                 (image,dates), mask = self.recursive_todevice(data)
-                print ('IMAGE SHAPE', image.shape)
                 mask = mask.long()
                 pred = self.net.forward(image, batch_positions=dates)
                 val_loss = self.semantic_seg_loss(pred, mask)

@@ -158,7 +158,7 @@ class DynamicEarthNet(Dataset):
         if 'val' in self.mode or 'test' in self.mode:
             images, label = val_augmentation(images, label, scale=False, base_size=None)
         else:
-            images, label = train_augmentation(images, label, scale=True, base_size=base_size, crop_size=self.resize, image_padding=padding, ignore_index=self.ignore_index, flip=True)
+            images, label = train_augmentation(images, label, scale=True, base_size=base_size, crop_size=self.resize, flip=True)
         label = torch.from_numpy(np.array(label, dtype=np.int32)).long()
         return (images, dates), label
 
