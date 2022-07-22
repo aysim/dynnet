@@ -25,7 +25,7 @@ The models are mainly adapted from <a href="https://github.com/VSainteuf/utae-pa
 * During the experiments, 2 cubes from the training set was not available so we exclude them. However now they are ready to use, please modify the train.txt accordingly. Specifically, the id's of the missing cubes: 1417_3281_13 and 2235_3403_13.
 
 ## Pretrained Models 
-* You can find the pretrained models for temporal architectures <a href="/storage/www/user/toker/dynnet_ckpt">here.</a>
+* You can find the pretrained models for temporal architectures <a href="https://vision.in.tum.de/webshare/u/toker/dynnet_ckpt">here.</a>
 ## Train 
 * Run `utae_train.py`.
 * Modify the arguments from `config/defaults.yaml`.
