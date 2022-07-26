@@ -1,8 +1,6 @@
 import numpy as np
 
 def color_map(N=7, normalized=False):
-    def bitget(byteval, idx):
-        return ((byteval & (1 << idx)) != 0)
 
     dtype = 'float32' if normalized else 'uint8'
     cmap = np.zeros((N, 3), dtype=dtype)
